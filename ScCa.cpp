@@ -3,38 +3,49 @@
 
 class Calculator{
     public:
-        int add(double x, double y){
+        double add(double x, double y){
             return (x + y);
         }
-        int sub(double x, double y){
+        double sub(double x, double y){
             return (x - y);
         }
-        int mul(double x, double y){
+        double mul(double x, double y){
             return (x * y);
         }
-        int div(double x, double y){
-            if(x == 0){
-                return 0;
-            } else if(y == 0){
-                return -1;
+        double div(double x, double y){
+            if(y == 0){
+                return NULL;
             } else{
                 return (x / y);
             }
         }
-        int pow(double x, double y){
-            return (pow(x, y));
+        double pow(double x, double y){
+            return (std::pow(x, y));
         }
-        int roo(double x, double y){
+        double roo(double x, double y){
             if(y == 2){
-                return (sqrt(x));
+                return (std::sqrt(x));
             } else if(y == 3){
-                return (cbrt(x));
+                return (std::cbrt(x));
             } else{
-                return (pow(x, (1.0 / y)));
+                return (std::pow(x, (1.0 / y)));
             }
+        }
+};
+class Scientific : public Calculator{
+    public:
+        double ln (double x){
+            return (std::log(x));
+        }
+        double l10(double x){
+            return (std::log10(x));
+        }
+        double log (double x, double y){
+            return (std::log(x) / std::log(y));
         }
 };
 
 int main(void){
-
+    Scientific calc;
+    
 }
