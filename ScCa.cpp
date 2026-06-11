@@ -1,5 +1,8 @@
+#include <iomanip>
 #include <iostream>
 #include <cmath>
+#include <windows.h>
+
 
 class Calculator{
     public:
@@ -44,8 +47,26 @@ class Scientific : public Calculator{
             return (std::log(x) / std::log(y));
         }
 };
+int MENU(void){
+    int option = -1;
+
+    std::cout << "#################### Scientific Calculator ####################" << '\n';
+    std::cout << "1.- Addition                    (Suma)                         " << '\n';
+    std::cout << "2.- Substraction                (Resta)                        " << '\n';
+    std::cout << "3.- Multiplication              (Multiplicación)               " << '\n';
+    std::cout << "4.- Division                    (División)                     " << '\n';
+    std::cout << "5.- Power                       (Potencia)                     " << '\n';
+    std::cout << "6.- Root                        (Raíz)                         " << '\n';
+    std::cout << "7.- Natural Logarithm           (Logaritmo natural)            " << '\n';
+    std::cout << "8.- Base-10 Logarithm           (Logaritmo en base 10)         " << '\n';
+    std::cout << "9.- Lorarithm                   (Logaritmo)                    " << '\n';
+
+    return option;
+}
 
 int main(void){
-    Scientific calc;
+    SetConsoleCP(CP_UTF8);
+    SetConsoleOutputCP(CP_UTF8);
     
+    int opt = MENU();
 }
