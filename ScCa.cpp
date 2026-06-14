@@ -96,7 +96,7 @@ class Scientific : public Calculator{
         }
 };
 int MENU(void){
-    int option = -1;
+    int option;
 
     std::cout << "#################### Scientific Calculator ####################" << '\n';
     std::cout << "1.-  Addition                   (Suma)                         " << '\n';
@@ -133,4 +133,138 @@ int main(void){
     SetConsoleOutputCP(CP_UTF8);
     
     int opt = MENU();
+
+    std::cout << '\n';
+
+    double a;
+    std::cout << "Enter the 1st number: ";
+    std::cin  >> a;
+
+
+    Scientific calculator;
+
+    switch (opt){
+        case 1:
+            double b;
+            std::cout << "Enter the 2nd number: ";
+            std::cin  >> b;
+
+            calculator.add(a, b);
+
+            break;
+        case 2:
+            double b;
+            std::cout << "Enter the 2nd number: ";
+            std::cin  >> b;
+
+            calculator.sub(a, b);
+
+            break;
+        case 3:
+            double b;
+            std::cout << "Enter the 2nd number: ";
+            std::cin  >> b;
+
+            calculator.mul(a, b);
+
+            break;
+        case 4:
+            double b;
+            std::cout << "Enter the 2nd number: ";
+            std::cin  >> b;
+
+            calculator.div(a, b);
+
+            break;
+        case 5:
+            double b;
+            std::cout << "Enter the 2nd number: ";
+            std::cin  >> b;
+
+            calculator.pow(a, b);
+
+            break;
+        case 6:
+            double b;
+            std::cout << "Enter the 2nd number: ";
+            std::cin  >> b;
+
+            calculator.roo(a, b);
+
+            break;
+        case 7:
+            calculator.ln(a);
+
+            break;
+        case 8:
+            calculator.l10(a);
+
+            break;
+        case 9:
+            double b;
+            std::cout << "Enter the 2nd number: ";
+            std::cin  >> b;
+
+            calculator.log(a, b);
+
+            break;
+        case 10:
+            calculator.sin(a);
+
+            break;
+        case 11:
+            calculator.cos(a);
+
+            break;
+        case 12:
+            calculator.tan(a);
+
+            break;
+        case 13:
+            calculator.asin(a);
+
+            break;
+        case 14:
+            calculator.acos(a);
+
+            break;
+        case 15:
+            calculator.atan(a);
+
+            break;
+        case 16:
+            calculator.sinh(a);
+
+            break;
+        case 17:
+            calculator.cosh(a);
+
+            break;
+        case 18:
+            calculator.tanh(a);
+
+            break;
+        case 19:
+            calculator.abs(a);
+
+            break;
+        case 20:
+            calculator.factorial(a);
+        case 21:
+            double b;
+            std::cout << "Enter the 2nd number: ";
+            std::cin  >> b;
+
+            calculator.percentage(a, b);
+
+            break;
+        default:
+            std::cout << "###############################################################";
+            return 0;
+    }
+
+    std::cout << "###############################################################";
+
+
+    return 0;
 }
