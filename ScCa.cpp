@@ -7,30 +7,30 @@
 
 class Calculator{
     public:
-        double add(double x, double y){
+        double add(long double x, long double y){
             return (x + y);
         }
-        double sub(double x, double y){
+        double sub(long double x, long double y){
             return (x - y);
         }
-        double mul(double x, double y){
+        double mul(long double x, long double y){
             return (x * y);
         }
-        double div(double x, double y){
+        double div(long double x, long double y){
             if(y == 0){
                 return std::numeric_limits<double>::quiet_NaN();
             } else{
                 return (x / y);
             }
         }
-        double pow(double x, double y){
+        double pow(long double x, long double y){
             if(x == 0 && y == 0){
                 return std::numeric_limits<double>::quiet_NaN();
             } else{
                 return (std::pow(x, y));
             }
         }
-        double roo(double x, double y){
+        double roo(long double x, long double y){
             if(y == 2){
                 return (std::sqrt(x));
             } else if(y == 3){
@@ -42,45 +42,43 @@ class Calculator{
 };
 class Scientific : public Calculator{
     public:
-        double ln (double x){
+        double ln  (long double x){
             return (std::log(x));
         }
-        double l10(double x){
+        double l10 (long double x){
             return (std::log10(x));
         }
-        double log(double x, double y){
+        double log (long double x, long double y){
             return (std::log(x) / std::log(y));
-        }
-        
-        double sin (double x){
+        }    
+        double sin (long double x){
             return (std::sin(x));
         }
-        double cos (double x){
+        double cos (long double x){
             return (std::cos(x));
         }
-        double tan (double x){
+        double tan (long double x){
             return (std::tan(x));
         }
-        double asin(double x){
+        double asin(long double x){
             return (std::asin(x));
         }
-        double acos(double x){
+        double acos(long double x){
             return (std::acos(x));
         }
-        double atan(double x){
+        double atan(long double x){
             return (std::atan(x));
         }
-        double sinh(double x){
+        double sinh(long double x){
             return (std::sinh(x));
         }
-        double cosh(double x){
+        double cosh(long double x){
             return (std::cosh(x));
         }
-        double tanh(double x){
+        double tanh(long double x){
             return (std::tanh(x));
         }
-
-        double abs(double x){
+        double abs (long double x){
             return (std::abs(x));
         }
         unsigned long long factorial(unsigned int x){
@@ -91,7 +89,7 @@ class Scientific : public Calculator{
             }
             return z;
         }
-        double percentage(double x, double y){
+        double percentage(long double x, long double y){
             return ((x / 100) * y);
         }
 };
@@ -137,134 +135,252 @@ int main(void){
     std::cout << '\n';
 
     double a;
-    std::cout << "Enter the 1st number: ";
-    std::cin  >> a;
-
-
+    double b;
+    double result;
     Scientific calculator;
 
     switch (opt){
         case 1:
-            double b;
-            std::cout << "Enter the 2nd number: ";
+            std::cout << "Enter the 1st addend: ";
+            std::cin  >> a;
+
+            std::cout << "Enter the 2nd addend: ";
             std::cin  >> b;
 
-            calculator.add(a, b);
+            result = calculator.add(a, b);
+
+            std::cout << '\n' << '\n' << '\n';
+            std::cout << "Sum: " << std::fixed << std::setprecision(10) << result << '\n';
 
             break;
         case 2:
-            double b;
-            std::cout << "Enter the 2nd number: ";
+            std::cout << "Enter the minuend: ";
+            std::cin  >> a;
+
+            std::cout << "Enter the subtrahend: ";
             std::cin  >> b;
 
-            calculator.sub(a, b);
+            result = calculator.sub(a, b);
+
+            std::cout << '\n' << '\n' << '\n';
+            std::cout << "Difference: " << std::fixed << std::setprecision(10) << result << '\n';
 
             break;
         case 3:
-            double b;
-            std::cout << "Enter the 2nd number: ";
+            std::cout << "Enter the multiplicand: ";
+            std::cin  >> a;
+
+            std::cout << "Enter the multplier: ";
             std::cin  >> b;
 
-            calculator.mul(a, b);
+            result = calculator.mul(a, b);
+            
+            std::cout << '\n' << '\n' << '\n';
+            std::cout << "Product: " << std::fixed << std::setprecision(10) << result << '\n';
 
             break;
         case 4:
-            double b;
-            std::cout << "Enter the 2nd number: ";
+            std::cout << "Enter the dividend: ";
+            std::cin  >> a;
+
+            std::cout << "Enter the divisor: ";
             std::cin  >> b;
 
-            calculator.div(a, b);
+            result = calculator.div(a, b);
+            
+            std::cout << '\n' << '\n' << '\n';
+            std::cout << "Quotient: " << std::fixed << std::setprecision(10) << result << '\n';
 
             break;
         case 5:
-            double b;
-            std::cout << "Enter the 2nd number: ";
+            std::cout << "Enter the base: ";
+            std::cin  >> a;
+
+            std::cout << "Enter the exponent: ";
             std::cin  >> b;
 
-            calculator.pow(a, b);
+            result = calculator.pow(a, b);
+
+            std::cout << '\n' << '\n' << '\n';
+            std::cout << "Power: " << std::fixed << std::setprecision(10) << result << '\n';
 
             break;
         case 6:
-            double b;
-            std::cout << "Enter the 2nd number: ";
+            std::cout << "Enter the radicand: ";
+            std::cin  >> a;
+
+            std::cout << "Enter the exponent: ";
             std::cin  >> b;
 
-            calculator.roo(a, b);
+            result = calculator.roo(a, b);
+            
+            std::cout << '\n' << '\n' << '\n';
+            std::cout << "Root: " << std::fixed << std::setprecision(10) << result << '\n';
 
             break;
         case 7:
-            calculator.ln(a);
+            std::cout << "Enter the argument: ";
+            std::cin  >> a;
+
+            result = calculator.ln(a);
+            
+            std::cout << '\n' << '\n' << '\n';
+            std::cout << "Logarithm: " << std::fixed << std::setprecision(10) << result << '\n';
 
             break;
         case 8:
-            calculator.l10(a);
+            std::cout << "Enter the argument: ";
+            std::cin  >> a;
+
+            result = calculator.l10(a);
+            
+            std::cout << '\n' << '\n' << '\n';
+            std::cout << "Logarithm: " << std::fixed << std::setprecision(10) << result << '\n';
 
             break;
         case 9:
-            double b;
-            std::cout << "Enter the 2nd number: ";
+            std::cout << "Enter the argument: ";
+            std::cin  >> a;
+
+            std::cout << "Enter the base: ";
             std::cin  >> b;
 
-            calculator.log(a, b);
+            result = calculator.log(a, b);
+            
+            std::cout << '\n' << '\n' << '\n';
+            std::cout << "Logarithm: " << std::fixed << std::setprecision(10) << result << '\n';
 
             break;
         case 10:
-            calculator.sin(a);
+            std::cout << "Enter the angle: ";
+            std::cin  >> a;
+
+            result = calculator.sin(a);
+            
+            std::cout << '\n' << '\n' << '\n';
+            std::cout << "Result: " << std::fixed << std::setprecision(10) << result << '\n';
 
             break;
         case 11:
-            calculator.cos(a);
+            std::cout << "Enter the angle: ";
+            std::cin  >> a;
+
+            result = calculator.cos(a);
+            
+            std::cout << '\n' << '\n' << '\n';
+            std::cout << "Result: " << std::fixed << std::setprecision(10) << result << '\n';
 
             break;
         case 12:
-            calculator.tan(a);
+            std::cout << "Enter the angle: ";
+            std::cin  >> a;
+
+            result = calculator.tan(a);
+            
+            std::cout << '\n' << '\n' << '\n';
+            std::cout << "Result: " << std::fixed << std::setprecision(10) << result << '\n';
 
             break;
         case 13:
-            calculator.asin(a);
+            std::cout << "Enter the angle: ";
+            std::cin  >> a;
+
+            result = calculator.asin(a);
+            
+            std::cout << '\n' << '\n' << '\n';
+            std::cout << "Angle: " << std::fixed << std::setprecision(10) << result << '\n';
 
             break;
         case 14:
-            calculator.acos(a);
+            std::cout << "Enter the angle: ";
+            std::cin  >> a;
+
+            result = calculator.acos(a);
+            
+            std::cout << '\n' << '\n' << '\n';
+            std::cout << "Angle: " << std::fixed << std::setprecision(10) << result << '\n';
 
             break;
         case 15:
-            calculator.atan(a);
+            std::cout << "Enter the angle: ";
+            std::cin  >> a;
+
+            result = calculator.atan(a);
+            
+            std::cout << '\n' << '\n' << '\n';
+            std::cout << "Angle: " << std::fixed << std::setprecision(10) << result << '\n';
 
             break;
         case 16:
-            calculator.sinh(a);
+            std::cout << "Enter the argument: ";
+            std::cin  >> a;
+
+            result = calculator.sinh(a);
+            
+            std::cout << '\n' << '\n' << '\n';
+            std::cout << "Result: " << std::fixed << std::setprecision(10) << result << '\n';
 
             break;
         case 17:
-            calculator.cosh(a);
+            std::cout << "Enter the argument: ";
+            std::cin  >> a;
+
+            result = calculator.cosh(a);
+            
+            std::cout << '\n' << '\n' << '\n';
+            std::cout << "Result: " << std::fixed << std::setprecision(10) << result << '\n';
 
             break;
         case 18:
-            calculator.tanh(a);
+            std::cout << "Enter the argument: ";
+            std::cin  >> a;
+
+            result = calculator.tanh(a);
+            
+            std::cout << '\n' << '\n' << '\n';
+            std::cout << "Result: " << std::fixed << std::setprecision(10) << result << '\n';
 
             break;
         case 19:
-            calculator.abs(a);
+            std::cout << "Enter the argument: ";
+            std::cin  >> a;
+
+            result = calculator.abs(a);
+            
+            std::cout << '\n' << '\n' << '\n';
+            std::cout << "Absolute value: " << std::fixed << std::setprecision(10) << result << '\n';
 
             break;
         case 20:
-            calculator.factorial(a);
+            std::cout << "Enter the argument: ";
+            std::cin  >> a;
+
+            result = calculator.factorial(a);
+            
+            std::cout << '\n' << '\n' << '\n';
+            std::cout << "Factorial: " << std::fixed << std::setprecision(10) << result << '\n';
+
+            break;
         case 21:
-            double b;
-            std::cout << "Enter the 2nd number: ";
+            std::cout << "Enter the argument: ";
+            std::cin  >> a;
+
+            std::cout << "Enter the rate: ";
             std::cin  >> b;
 
-            calculator.percentage(a, b);
+            result = calculator.percentage(a, b);
+            
+            std::cout << '\n' << '\n' << '\n';
+            std::cout << "Percentage: " << std::fixed << std::setprecision(10) << result << "%" << '\n';
 
             break;
         default:
             std::cout << "###############################################################";
-            return 0;
+            return 1;
     }
 
-    std::cout << "###############################################################";
-
-
-    return 0;
+        std::cout << "###############################################################";
+    
+    
+        return 0;
 }
